@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>
+    <title>Sistema de Gerenciamento</title>
+</head>
+<body>
+    <div id="nav"></div>
+
+    <main id="main_financeiro">
+        
+        <header id="header_financeiro">
+            <h2>Financeiro</h2>
+        </header>
+        
+        <section class="organiza_financeiro">
+
+            <div class="card_financeiro" id="card_faturamento">
+                <div class="topo_card">
+                    <span class="icone_faturamento"><i class="fa-solid fa-arrow-trend-up"></i></span>
+                    <span class="titulo_card">Faturamento</span>
+                </div>
+                <div class="conteudo_valor">
+                    <h1 class="valor_sensivel cor_faturamento" data-valor="R$ 28.300,00">R$ 28.300,00</h1>
+                    <p>Este mês</p>
+                </div>
+            </div>
+
+            <div class="card_financeiro" id="card_despesas">
+                <div class="topo_card">
+                    <span class="icone_despesas"><i class="fa-solid fa-arrow-trend-down"></i></span>
+                    <span class="titulo_card">Despesas</span>
+                </div>
+                <div class="conteudo_valor">
+                    <h1 class="valor_sensivel cor_despesa" data-valor="R$ 2.570,00">R$ 2.570,00</h1>
+                    <p>Este mês</p>
+                </div>
+            </div>
+
+            <div class="card_financeiro" id="card_lucro">
+                <div class="topo_card">
+                    <span class="icone_lucro"><i class="fa-solid fa-dollar-sign"></i></span>
+                    <span class="titulo_card">Lucro Líquido</span>
+                </div>
+                <div class="conteudo_valor">
+                    <h1 class="valor_sensivel cor_lucro" data-valor="R$ 25.730,00">R$ 25.730,00</h1>
+                    <p>Este mês</p>
+                </div>
+            </div>
+
+            <div class="bnt_oculto">
+                <button onclick="toggleGlobalValores()" class="botao_ocultar">
+                    <i id="icone_olho_geral" class="fas fa-eye-slash"></i> 
+                    Ocultar valores
+                </button>  
+            </div>
+
+        </section>
+
+        <section id="grafico_financeiro"></section>
+
+
+        <section id="organiza_caixa">
+
+            <details class="caixa_container">
+
+                <summary>
+                    <div class="header_left">
+                        <span><i class="fa-solid fa-sack-dollar"></i></span> <span>Despesas do Mês</span>
+                        <span class="notificacao_despesa">5</span>
+                    </div>
+        
+                    <span class="seta"><i class="fa-solid fa-chevron-down"></i></span>
+                </summary>
+
+                <div class="header_conteudo">
+                    <div class="total">
+                        <p>Total:</p>
+                        <p>R$ 2.000,00</p>
+                    </div>
+
+                    <div class="bnt_add">
+                        <button>
+                            <span><i class="fa-solid fa-plus"></i></span>
+                                Adicionar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="main_conteudo">
+                    <div class="card_main_conteudo">
+                        <div class="inf_conteudo">
+                            <h3>Fornecedor de carnes</h3>
+                            <p><i class="fa-regular fa-calendar"></i>30/01/2026</p>
+                            <div class="status_conteudo">
+                                <p>Fixa</p>
+                                <p>Pagamento mensal - próximo vencimento</p>
+                            </div>
+                        </div>
+                        <div class="valor_conteudo">
+                            <h3>R$1500.00</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main_conteudo">
+                    <div class="card_main_conteudo">
+                        <div class="inf_conteudo">
+                            <h3>Energia Elétrica</h3>
+                            <p><i class="fa-regular fa-calendar"></i>30/01/2026</p>
+                            <div class="status_conteudo">
+                                <p>Fixa</p>
+                                <p>Conta referente ao mês de novembro</p>
+                            </div>
+                        </div>
+                        <div class="valor_conteudo">
+                            <h3>R$4000.00</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </details>
+
+
+        
+            <details class="caixa_container">
+
+                <summary>
+                    <div class="header_left">
+                        <span><i class="fa-solid fa-coins"></i></span> <span>Controle de Caixa </span>
+                        <span class="notificacao_caixa">5</span>
+                    </div>
+        
+                    <span class="seta"><i class="fa-solid fa-chevron-down"></i></span>
+                </summary>
+
+                    <div class="header_conteudo">
+                        <div class="total">
+                            <p>Total:</p>
+                            <p>R$ 2.000,00</p>
+                        </div>
+
+                        <div class="bnt_add">
+                            <button>
+                                <span><i class="fa-solid fa-plus"></i></span>
+                                    Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+            </details>
+
+        </section>
+
+    </main>
+
+    <script src="../../assets/js/script.js"></script>
+
+</body>
+</html>

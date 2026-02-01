@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>
+    <title>Sistema de Gerenciamento</title>
+</head>
+<body>
+
+    <div id="nav"></div>
+
+    <main id="main_cardapio">
+
+        <header id="header_cardapio">
+            <h2>Monte aqui o seu cardapio</h2>
+        </header>
+
+        <section class="campo_section">
+            <h3>Header do Cardápio</h3>
+
+            <form action="" method="POST" class="campo">
+                <label>Nome do estabelecimento</label>
+                <input placeholder="Ex: Burger do Akuna">
+            </form>
+
+            <form action="" method="POST" class="campo">
+                <label>Mensagem principal</label>
+                <input placeholder="Ex: Olá!">
+            </form>
+
+            <form action="" method="POST" class="campo">
+                <label>Mensagem secundária</label>
+                <input placeholder="Ex: O que você deseja pedir hoje?">
+            </form>
+
+            <form action="" method="POST" class="campo">
+                <label>Horário de funcionamento</label>
+                <input placeholder="Ex: Aberto das 18h às 23h">
+            </form>
+
+            <button type="submit">Salvar Alterações</button>
+        </section>
+
+        <section class="campo_section">
+            <h3>Categorias</h3>
+
+            <form action="" method="POST" class="campo">
+                <label>Nova categoria</label>
+                <input id="novaCategoria" placeholder="Ex: Lanches">
+                <button type="button" onclick="addCategoria()">Adicionar categoria</button>
+            </form>
+
+            <div class="lista" id="listaCategorias"></div>
+        </section>
+
+        <section class="campo_section">
+            <h3>Produto</h3>
+
+            <form action="" method="POST" class="campo">
+                <label>Nome do produto</label>
+                <input placeholder="Ex: X-Burguer">
+            </form>
+
+            <form action="" method="POST" class="campo">
+                <label>Descrição</label>
+                <textarea></textarea>
+            </form>
+
+            <form action="" method="POST" class="campo">
+                <label>Categoria</label>
+                <select id="selectCategorias"></select>
+            </form>
+
+            <form action="" method="POST" class="campo">
+                <label>Imagem do produto</label>
+                <input type="file">
+            </form>
+
+            <form action="" method="POST" class="campo">
+                <label>Preço base (se não tiver tamanho)</label>
+                <input type="number" placeholder="Ex: 25.90">
+            </form>
+
+            <hr>
+
+            <h3>Tamanhos / Variações (opcional)</h3>
+            <div id="listaTamanhos"></div>
+            <button type="button" onclick="addTamanho()">+ Adicionar tamanho</button>
+
+            <hr>
+
+            <h3>Acréscimos (opcional)</h3>
+            <div id="listaAcrecimos"></div>
+            <button type="button" onclick="addAcrecimo()">+ Adicionar acréscimo</button>
+
+            <br><br>
+            <button type="submit">Salvar Produto</button>
+        </section>
+
+        <section class="campo_section">
+            <h3>Recomendação do Dia</h3>
+
+            <form action="" method="POST" class="campo">
+                <label>Texto da recomendação</label>
+                <input value="Recomendado para você">
+            </form>
+
+            <form action="" method="POST" class="campo">
+                <label>Nome do produto recomendado</label>
+                <input type="number" placeholder="Ex: 3">
+            </form>
+        </section>
+
+        <section class="campo_section">
+            <h3>Footer</h3>
+
+            <form action="" method="POST" class="campo">
+                <label>Nome do estabelecimento</label>
+                <input placeholder="Digite o nome">
+            </form>
+
+            <form action="" method="POST" class="campo">
+                <label>Slogan</label>
+                <input placeholder="Ex: O melhor sabor da região">
+            </form>
+
+            <form action="" method="POST" class="campo">
+                <label>Instagram (link)</label>
+                <input type="url" placeholder="https://instagram.com/seuusuario">
+            </form>
+
+            <form action="" method="POST" class="campo">
+                <label>Facebook (link)</label>
+                <input type="url" placeholder="https://facebook.com/suapagina">
+            </form>
+
+            <form action="" method="POST" class="campo">
+                <label>WhatsApp (link)</label>
+                <input type="url" placeholder="https://wa.me/seunumeroaqui">
+            </form>
+            
+            <button type="submit">Salvar Footer</button>
+        </section>
+
+    </main>
+
+    <script src="../../assets/js/script.js"></script>
+
+    <script>
+let categorias = [];
+
+/* ================= CATEGORIAS ================= */
+function addCategoria() {
+  const nome = document.getElementById("novaCategoria").value;
+  if (!nome) return;
+
+  categorias.push(nome);
+  document.getElementById("novaCategoria").value = "";
+  renderCategorias();
+}
+
+function renderCategorias() {
+  document.getElementById("listaCategorias").innerText =
+    "Categorias criadas: " + categorias.join(", ");
+
+  const select = document.getElementById("selectCategorias");
+  select.innerHTML = "";
+  categorias.forEach(cat => {
+    const opt = document.createElement("option");
+    opt.text = cat;
+    select.add(opt);
+  });
+}
+
+/* ================= TAMANHOS ================= */
+function addTamanho() {
+  const div = document.createElement("div");
+  div.className = "linha";
+  div.innerHTML = `
+    <input placeholder="Nome do tamanho">
+    <input type="number" placeholder="Preço">
+  `;
+  document.getElementById("listaTamanhos").appendChild(div);
+}
+
+/* ================= ACRÉSCIMOS ================= */
+function addAcrecimo() {
+  const div = document.createElement("div");
+  div.className = "linha";
+  div.innerHTML = `
+    <input placeholder="Nome do acréscimo">
+    <input type="number" placeholder="Preço">
+  `;
+  document.getElementById("listaAcrecimos").appendChild(div);
+}
+</script>
+
+
+</body>
+</html>
