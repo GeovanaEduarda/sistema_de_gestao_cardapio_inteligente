@@ -27,8 +27,9 @@
 body{
     display: flex;
     min-height: 100vh;
-    background-color: var(--cor-fundo);
-    height: 100%;
+    /* background-color: var(--cor-fundo); */
+    height: 10px;
+    background-color: #00A63E;
     /* margin: 0;
     overflow: hidden; */
 }
